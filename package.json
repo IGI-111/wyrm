@@ -1,5 +1,5 @@
 {
-    "name": "wyrm",
+    "name": "wyrm-torrent",
     "version": "0.1.0",
     "description": "a remote controlled bittorrent client",
     "main": "server.js",

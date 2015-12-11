@@ -1,20 +1,24 @@
 {
-  "name": "wyrm",
-  "version": "0.0.1",
-  "description": "A remote controlled torrent client.",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "GPL-2.0",
-  "dependencies": {
-    "body-parser": "^1.14.1",
-    "express": "^4.13.3",
-    "node-getopt": "^0.2.3",
-    "webtorrent": "^0.63.3"
-  },
-  "bin": {
-    "wyrm": "server.js"
-  }
+    "name": "wyrm",
+    "version": "0.1.0",
+    "description": "a remote controlled bittorrent client",
+    "main": "server.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/IGI-111/wyrm"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Jibril Saffi",
+    "license": "GPL-2.0",
+    "dependencies": {
+        "body-parser": "^1.14.1",
+        "express": "^4.13.3",
+        "node-getopt": "^0.2.3",
+        "webtorrent": "^0.63.3"
+    },
+    "bin": {
+        "wyrm": "server.js"
+    }
 }

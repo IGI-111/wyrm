@@ -1,5 +1,7 @@
 #! /usr/bin/env node
 
+module.exports = function(){};
+
 var getopt = require('node-getopt');
 var WebTorrent = require('webtorrent');
 var express = require('express');

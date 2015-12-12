@@ -27,4 +27,4 @@ To get the contents of a file, you need to `GET` to
 This will open a stream to the file and prioritize the parts accordingly.
 
 ##Deleting a torrent
-Simply `DELETE` to `/[yourTorrentInfoHash]` to get rid of a torrent and all the associated files.
+Simply `DELETE` to `/[yourTorrentInfoHash]` to get rid of a torrent.

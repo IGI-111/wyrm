@@ -1,6 +1,6 @@
 {
     "name": "wyrm-torrent",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "a remote controlled bittorrent client",
     "main": "server.js",
     "repository": {

@@ -10,7 +10,9 @@ module.exports = function(web, bt, downloadPath){
     });
     // Removing a torrent
     web.delete('/:infoHash', function(req, res){
-        bt.remove(req.params.infoHash);
+        var infoHash = req.params.infoHash;
+        bt.remove(infoHash);
+        console.log("Deleted " + infoHash);
     });
     // Getting torrent info
     web.get('/info/:infoHash', function(req, res){

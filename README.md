@@ -11,6 +11,9 @@ To add a torrent `POST` to `/` with the following body:
 ```
 The response body will contain the infohash of the corresponding torrent.
 
+##Listing torrents
+You can get an array of added torrent infohashes by `GET`ing to `/list`
+
 ##Getting information
 You can get information on an added torrent by `GET`ing to
 `/info/[yourTorrentInfoHash]` the response will be in the following form:

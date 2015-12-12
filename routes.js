@@ -30,7 +30,6 @@ module.exports = function(web, bt, downloadPath){
             files: fileList
         });
     });
-
     // Getting a file
     web.get('/get/:infoHash/:path(*)', function(req, res){
         var torrent = bt.get(req.params.infoHash);
@@ -40,5 +39,12 @@ module.exports = function(web, bt, downloadPath){
         res.set('Content-Length', file.length);
         file.createReadStream().pipe(res);
         console.log("Sending " + file.path);
+    });
+    // List torrents
+    web.get('/list', function(req, res){
+        var torrentList = bt.torrents.map(function(t){
+            return t.infoHash;
+        });
+        res.json(torrentList);
     });
 };

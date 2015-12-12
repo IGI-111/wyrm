@@ -5,7 +5,7 @@ module.exports = function(web, bt, downloadPath){
         bt.add(uri, {path: downloadPath}, function(torrent){
             res.send(torrent.infoHash);
             console.log("Added torrent " + torrent.infoHash +
-                    " at " + downloadPath + '/' +torrent.path);
+                    " at " + torrent.path);
         });
     });
     // Removing a torrent
@@ -24,10 +24,15 @@ module.exports = function(web, bt, downloadPath){
         var fileList = torrent.files.map(function(f){
             return f.path;
         });
+        var topLevelFolder = fileList.length > 0 ?
+            fileList[0].substring(0, fileList[0].indexOf('/'))
+            : null;
 
         res.json({
+            name: topLevelFolder,
+            uri: req.params.infoHash,
             progress: torrent.downloaded / torrentSize,
-            files: fileList
+            files: fileList,
         });
     });
     // Getting a file

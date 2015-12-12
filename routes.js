@@ -13,6 +13,7 @@ module.exports = function(web, bt, downloadPath){
         var infoHash = req.params.infoHash;
         bt.remove(infoHash);
         console.log("Deleted " + infoHash);
+        res.send();
     });
     // Getting torrent info
     web.get('/info/:infoHash', function(req, res){

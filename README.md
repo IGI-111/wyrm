@@ -19,7 +19,8 @@ You can get information on an added torrent by `GET`ing to
 `/info/[yourTorrentInfoHash]` the response will be in the following form:
 ```js
 {
-    "progress":0.16, // a completion ratio between 1 and 0
+    "name":"debian-8.2.0-amd64-CD-1.iso", // the name of the first top level folder or file
+    "progress":0.1673, // a completion ratio between 1 and 0
     "files":["debian-8.2.0-amd64-CD-1.iso"] //an array of paths to the files
 }
 ```

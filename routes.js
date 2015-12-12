@@ -21,6 +21,7 @@ module.exports = function(web, bt, downloadPath){
         var torrentSize = torrent.files.reduce(function(total, file){
             return total + parseInt(file.length);
         }, 0);
+        var progress = (torrent.downloaded / torrentSize).toFixed(4);
         var fileList = torrent.files.map(function(f){
             return f.path;
         });
@@ -31,7 +32,7 @@ module.exports = function(web, bt, downloadPath){
         res.json({
             name: topLevelFolder,
             uri: req.params.infoHash,
-            progress: torrent.downloaded / torrentSize,
+            progress: progress,
             files: fileList,
         });
     });

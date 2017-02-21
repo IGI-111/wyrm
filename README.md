@@ -3,7 +3,9 @@
   <img src="res/wyrm.png" alt="Wyrm" width="190" height="167"/>
   </a>
 </h1>
+
 # Wyrm
+
 Wyrm is a simple remote controlled torrent client.
 You can control an instance by using simple HTTP requests.
 
@@ -40,5 +42,5 @@ Which returns something like:
     "ratio":0,
     "numPeers":1,
     "path":"/tmp/wyrm/d2474e86c95b19b8bcfdb92bc12c9d44667cfa36"
-    }
+}
 ```

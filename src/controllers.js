@@ -58,7 +58,7 @@ function addTorrent (req, res, next) {
 
   client.add(torrent, opts, (torrent) => {
     console.log('added ' + torrent.infoHash)
-    res.send(torrent.torrent)
+    res.send(torrent.infoHash)
   })
 }
 

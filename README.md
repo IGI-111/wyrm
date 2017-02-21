@@ -1,54 +1,15 @@
 # Wyrm
-Wyrm is a simple remote controlled torrent client daemon.
+<h1 align="center">
+  <a href="https://github.com/IGI-111/wyrm">
+  <img src="res/wyrm.png" alt="Wyrm" width="190" height="167"/>
+  </a>
+</h1>
+
+Wyrm is a simple remote controlled torrent client.
 You can control an instance by using simple HTTP requests.
 
 
 ## Usage
-```
-  Usage: wyrm [options]
-
-  Options:
-
-    -h, --help          output usage information
-    -f, --files [path]  directory to store downloaded files
-    -p, --port [port]   port to listen on
-```
-
-## API
-### Seed a new file or folder
-`POST /seed {"path": "/path/to/files"}`
-
-### List all  torrents
-`GET /list`
-
-### Add a new torrent
-`POST /add/:infoHash`
-or
-`POST /add {"torrent": "magnet link, torrent file path or infoHash"}`
-
-### Delete a torrent
-`DELETE /delete/:infoHash`
-
-### Get information about a torrent
-`GET /info/:infoHash`
-
-# Wyrm
-Wyrm is a simple remote controlled torrent client daemon.
-You can control an instance by using simple HTTP requests.
-
-
-## Usage
-```
-  Usage: wyrm [options]
-
-  Options:
-
-    -h, --help          output usage information
-    -f, --files [path]  directory to store downloaded files
-    -p, --port [port]   port to listen on
-```
-
-## API
 ### Seed a new file or folder
 `POST /seed {"path": "/path/to/files"}`
 

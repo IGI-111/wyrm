@@ -1,10 +1,9 @@
-# Wyrm
 <h1 align="center">
   <a href="https://github.com/IGI-111/wyrm">
   <img src="res/wyrm.png" alt="Wyrm" width="190" height="167"/>
   </a>
 </h1>
-
+# Wyrm
 Wyrm is a simple remote controlled torrent client.
 You can control an instance by using simple HTTP requests.
 

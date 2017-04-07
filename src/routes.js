@@ -1,9 +1,9 @@
-const express = require('express')
-const validate = require('express-validation')
-const joi = require('joi')
-const ctrl = require('./controllers')
+const express = require('express');
+const validate = require('express-validation');
+const joi = require('joi');
+const ctrl = require('./controllers');
 
-const router = express.Router()
+const router = express.Router();
 
 router.route('/torrent/:infoHash')
   // add new torrent by infohash
@@ -11,7 +11,7 @@ router.route('/torrent/:infoHash')
   // get info on existing torrent
   .get(ctrl.torrentInfo)
   // delete torrent
-  .delete(ctrl.deleteTorrent)
+  .delete(ctrl.deleteTorrent);
 
 router.route('/torrent')
   // add new torrent by infohash or magnet link
@@ -19,6 +19,6 @@ router.route('/torrent')
   // seed new torrent from specified files
   .post(validate({body: {path: joi.string().required()}}), ctrl.seedFile)
   // list all torrents
-  .get(ctrl.listTorrents)
+  .get(ctrl.listTorrents);
 
-module.exports = router
+module.exports = router;

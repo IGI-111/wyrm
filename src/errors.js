@@ -1,11 +1,11 @@
 class SendableError {
   constructor (msg, code) {
-    this.msg = msg
-    this.code = code
+    this.msg = msg;
+    this.code = code;
   }
   send (res) {
-    res.status(this.code)
-    res.send({ status: 'error', message: this.msg })
+    res.status(this.code);
+    res.send({ status: 'error', message: this.msg });
   }
 }
 
@@ -15,4 +15,4 @@ module.exports = {
   TORRENT_ALREADY_ADDED: new SendableError('Torrent already added', 400),
   INFOHASH_NOT_FOUND: new SendableError('Torrent not found', 404),
   CANT_CREATE_TORRENT: new SendableError('Could not create torrent.', 502)
-}
+};

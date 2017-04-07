@@ -12,21 +12,21 @@ You can control an instance by using simple HTTP requests.
 
 ## Usage
 ### Seed a new file or folder
-`POST /seed {"path": "/path/to/files"}`
+`POST /torrent {"path": "/path/to/files"}`
 
 ### List all  torrents
-`GET /list`
+`GET /torrent`
 
 ### Add a new torrent
-`POST /add/:infoHash`
+`POST /torrent/:infoHash`
 
-`POST /add {"torrent": "magnet link, torrent file path or infoHash"}`
+`PUT /torrent {"torrent": "magnet link, torrent file path or infoHash"}`
 
 ### Delete a torrent
-`DELETE /delete/:infoHash`
+`DELETE /torrent/:infoHash`
 
 ### Get information about a torrent
-`GET /info/:infoHash`
+`GET /torrent/:infoHash`
 
 Which returns something like:
 ```

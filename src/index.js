@@ -26,4 +26,4 @@ web.use(bodyParser.urlencoded({ extended: false }))
 web.use(bodyParser.json())
 web.use('/', require('./routes'))
 
-web.listen(port, () => console.log(`Listening on port ${port}.`))
+web.listen(port, _ => console.log(`Listening on port ${port}.`))

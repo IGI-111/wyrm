@@ -5,24 +5,20 @@ const ctrl = require('./controllers')
 
 const router = express.Router()
 
-// Seed a new file or folder
-router.route('/seed')
+router.route('/torrent/:infoHash')
+  // add new torrent by infohash
+  .post(ctrl.addTorrent)
+  // get info on existing torrent
+  .get(ctrl.torrentInfo)
+  // delete torrent
+  .delete(ctrl.deleteTorrent)
+
+router.route('/torrent')
+  // add new torrent by infohash or magnet link
+  .put(validate({body: {torrent: joi.string().required()}}), ctrl.addTorrent)
+  // seed new torrent from specified files
   .post(validate({body: {path: joi.string().required()}}), ctrl.seedFile)
-
-// List all currently known infoHashes
-router.get('/list', ctrl.listTorrents)
-
-// Add a torrent to be downloaded by infohash
-router.post('/add/:infoHash', ctrl.addTorrent)
-
-// Add a torrent to be downloaded by infohash or magnet link
-router.route('/add')
-  .post(validate({body: {torrent: joi.string().required()}}), ctrl.addTorrent)
-
-// Delete a torrent by infohash
-router.delete('/delete/:infoHash', ctrl.deleteTorrent)
-
-// Get information about a torrent by infohash
-router.get('/info/:infoHash', ctrl.torrentInfo)
+  // list all torrents
+  .get(ctrl.listTorrents)
 
 module.exports = router

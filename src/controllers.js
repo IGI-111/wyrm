@@ -11,7 +11,7 @@ const opts = {
 
 module.exports = { seedFile, listTorrents, addTorrent, deleteTorrent, torrentInfo }
 
-function seedFile (req, res, next) {
+function seedFile (req, res) {
   console.log('Seeding new file')
   const path = req.body.path
   fs.stat(path, (err, exists) => {
@@ -23,7 +23,7 @@ function seedFile (req, res, next) {
         return Errors.CANT_CREATE_TORRENT.send(res)
       }
 
-      var existingTorrent = client.get(torrentBuf)
+      const existingTorrent = client.get(torrentBuf)
       if (existingTorrent) {
         return Errors.TORRENT_ALREADY_ADDED.send(res)
       }
@@ -36,13 +36,13 @@ function seedFile (req, res, next) {
   })
 }
 
-function listTorrents (req, res, next) {
-  let torrentHashes = client.torrents.map((t) => t.infoHash)
+function listTorrents (req, res) {
+  const torrentHashes = client.torrents.map((t) => t.infoHash)
   res.json(torrentHashes)
 }
 
-function addTorrent (req, res, next) {
-  let torrent = req.params.torrent !== undefined
+function addTorrent (req, res) {
+  const torrent = req.params.torrent !== undefined
     ? req.params.torrent
     : req.body.torrent
 
@@ -62,15 +62,15 @@ function addTorrent (req, res, next) {
   })
 }
 
-function deleteTorrent (req, res, next) {
-  let infoHash = req.params.infoHash
+function deleteTorrent (req, res) {
+  const infoHash = req.params.infoHash
   try {
     parseTorrent(infoHash)
   } catch (e) {
     return Errors.INFOHASH_PARSE.send(res)
   }
 
-  let infoHashList = client.torrents.map((t) => t.infoHash)
+  const infoHashList = client.torrents.map((t) => t.infoHash)
   if (!infoHashList.includes(infoHash)) {
     return Errors.INFOHASH_NOT_FOUND.send(res)
   }
@@ -85,21 +85,21 @@ function deleteTorrent (req, res, next) {
   })
 }
 
-function torrentInfo (req, res, next) {
+function torrentInfo (req, res) {
   function pick (o, ...fields) {
     let res = {}
     fields.forEach((f) => { res[f] = o[f] })
     return res
   }
 
-  let infoHash = req.params.infoHash
+  const infoHash = req.params.infoHash
   try {
     parseTorrent(infoHash)
   } catch (e) {
     return Errors.INFOHASH_PARSE.send(res)
   }
 
-  let torrent = client.get(infoHash)
+  const torrent = client.get(infoHash)
   if (!torrent) {
     return Errors.INFOHASH_NOT_FOUND.send(res)
   }
